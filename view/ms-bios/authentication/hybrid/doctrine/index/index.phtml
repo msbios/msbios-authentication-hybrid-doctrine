@@ -1,0 +1,25 @@
+<?php
+/**
+ * @access protected
+ * @author Judzhin Miles <info[woof-woof]msbios.com>
+ */
+
+$this->headLink()
+    ->appendStylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+?>
+
+    <h1>Authentication Hybrid Doctrine</h1>
+
+<?php if ($identity = $this->identity()): ?>
+    <h2>Profile</h2>
+<?php else: ?>
+    <a href="#" class="btn btn-primary btn-sm">
+        <span class="fa fa-facebook"></span> Sign in with Facebook
+    </a>
+    <a href="#" class="btn btn-danger btn-sm">
+        <span class="fa fa-google"></span> Sign in with Google
+    </a>
+    <a href="#" class="btn btn-info btn-sm">
+        <span class="fa fa-twitter"></span> Sign in with Twitter
+    </a>
+<?php endif; ?>

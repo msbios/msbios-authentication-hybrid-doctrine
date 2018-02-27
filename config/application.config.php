@@ -7,7 +7,7 @@ return [
     // Retrieve list of modules used in this application.
     'modules' => [
         'MSBios\Authentication\Hybrid',
-        'MSBios\Hydridauth',
+        'MSBios\Hybridauth',
         'MSBios\Portal\Doctrine',
         'MSBios\Portal',
         'MSBios\Application',
