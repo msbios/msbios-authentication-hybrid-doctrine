@@ -6,12 +6,13 @@
 namespace MSBios\Authentication\Hybrid\Doctrine\Controller;
 
 use MSBios\Application\Controller\IndexController as DefaultIndexController;
+use MSBios\Guard\GuardInterface;
 
 /**
  * Class IndexController
  * @package MSBios\Authentication\Hybrid\Doctrine\Controller
  */
-class IndexController extends DefaultIndexController
+class IndexController extends DefaultIndexController implements GuardInterface
 {
     /**
      * @return \Zend\View\Model\ViewModel

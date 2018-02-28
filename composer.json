@@ -24,7 +24,8 @@
     }
   },
   "require": {
-    "msbios/authentication-hybrid": "^1.0"
+    "msbios/authentication-hybrid": "^1.0",
+    "msbios/authentication-hybrid-resource-doctrine": "^1.0"
   },
   "require-dev": {
     "msbios/portal-doctrine": "^1.0",

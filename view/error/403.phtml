@@ -1,0 +1,59 @@
+<?php
+/**
+ * @access protected
+ * @author Judzhin Miles <info[woof-woof]msbios.com>
+ */
+
+$this->headLink()
+    ->appendStylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+/** @var \Zend\Form\FormInterface $form */
+$form = $this->form;
+?>
+<h1><?= $this->translate('403 Forbidden'); ?></h1>
+
+<div class="row">
+    <!-- Simple login form -->
+    <?= $this->form()->openTag($form); ?>
+    <div class="panel panel-body col-md-3">
+
+        <div class="form-group">
+            <?= $this->formElement($form->get('username')->setAttributes([
+                'class' => 'form-control',
+                'placeholder' => $this->translate('Username'),
+            ])); ?>
+        </div>
+
+        <div class="form-group">
+            <?= $this->formElement($form->get('password')->setAttributes([
+                'class' => 'form-control',
+                'placeholder' => $this->translate('Password'),
+            ])); ?>
+        </div>
+
+        <div class="form-group">
+            <?= $this->formElement($form->get('redirect')); ?>
+
+            <button type="submit" class="btn btn-primary">
+                <?= $this->translate('Sign in'); ?> <i class="icon-circle-right2 position-right"></i>
+            </button>
+
+            <a href="#"><?= $this->translate('Forgot password?'); ?></a>
+        </div>
+
+    </div>
+    <?= $this->form()->closeTag($form); ?>
+    <!-- /simple login form -->
+</div>
+
+<h2>Social Providers:</h2>
+
+<a href="<?= $this->url('hybridauth/provider', ['identifier' => 'facebook']); ?>" class="btn btn-primary btn-sm">
+    <span class="fa fa-facebook"></span> Sign in with Facebook
+</a>
+<a href="<?= $this->url('hybridauth/provider', ['identifier' => 'google']); ?>" class="btn btn-danger btn-sm">
+    <span class="fa fa-google"></span> Sign in with Google
+</a>
+<a href="<?= $this->url('hybridauth/provider', ['identifier' => 'twitter']); ?>" class="btn btn-info btn-sm">
+    <span class="fa fa-twitter"></span> Sign in with Twitter
+</a>
