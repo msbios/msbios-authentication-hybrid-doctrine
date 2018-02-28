@@ -8,8 +8,11 @@ $this->headLink()
     ->appendStylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 ?>
 
-<h1>Authentication Hybrid Doctrine</h1>
+<h1>Authentication Hybrid Doctrine
+    <small><a href="<?= $this->url('hybridauth/logout'); ?>">Logout</a></small>
+</h1>
 
+<h2>Bind networks</h2>
 <a href="<?= $this->url('hybridauth/provider', ['identifier' => 'facebook']); ?>" class="btn btn-primary btn-sm">
     <span class="fa fa-facebook"></span> Sign in with Facebook
 </a>
