@@ -4,6 +4,10 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
+namespace MSbios\Authentication\Hybrid\Doctrine;
+
+use MSBios\Guard\Resource\UserInterface;
+
 $this->headLink()
     ->appendStylesheet('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 ?>
@@ -12,13 +16,24 @@ $this->headLink()
     <small><a href="<?= $this->url('hybridauth/logout'); ?>">Logout</a></small>
 </h1>
 
+<?php
+/** @var UserInterface $identity */
+$identity = $this->identity();
+?>
+
+<ul>
+    <li><b>Firstname:</b> <?= $identity->getFirstname(); ?></li>
+    <li><b>Lastname:</b> <?= $identity->getLastname(); ?></li>
+</ul>
+
 <h2>Bind networks</h2>
-<a href="<?= $this->url('hybridauth/provider', ['identifier' => 'facebook']); ?>" class="btn btn-primary btn-sm">
+
+<a href="<?= $this->url('hybridauth/provider/add', ['identifier' => 'facebook']); ?>" class="btn btn-primary btn-sm">
     <span class="fa fa-facebook"></span> Sign in with Facebook
 </a>
-<a href="<?= $this->url('hybridauth/provider', ['identifier' => 'google']); ?>" class="btn btn-danger btn-sm">
+<a href="<?= $this->url('hybridauth/provider/add', ['identifier' => 'google']); ?>" class="btn btn-danger btn-sm">
     <span class="fa fa-google"></span> Sign in with Google
 </a>
-<a href="<?= $this->url('hybridauth/provider', ['identifier' => 'twitter']); ?>" class="btn btn-info btn-sm">
+<a href="<?= $this->url('hybridauth/provider/add', ['identifier' => 'twitter']); ?>" class="btn btn-info btn-sm">
     <span class="fa fa-twitter"></span> Sign in with Twitter
 </a>

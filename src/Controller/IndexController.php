@@ -5,7 +5,6 @@
  */
 namespace MSBios\Authentication\Hybrid\Doctrine\Controller;
 
-
 use MSBios\Guard\Doctrine\Controller\IndexController as DefaultIndexController;
 use MSBios\Guard\GuardInterface;
 

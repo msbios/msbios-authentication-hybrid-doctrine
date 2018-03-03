@@ -111,7 +111,7 @@ return [
         'rule_providers' => [
             \MSBios\Guard\Provider\RuleProvider::class => [
                 'allow' => [
-                    [['DEVELOPER'], \MSBios\Application\Controller\IndexController::class],
+                    [['USER'], \MSBios\Application\Controller\IndexController::class],
                 ],
                 'deny' => []
             ]
