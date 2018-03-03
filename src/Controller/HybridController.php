@@ -12,6 +12,7 @@ use MSBios\Authentication\Hybrid\Controller\HybridController as DefaultHybridCon
 use MSBios\Authentication\Hybrid\ProviderManagerInterface;
 use MSBios\Authentication\IdentityInterface;
 use MSBios\Guard\Resource\Doctrine\Entity\User;
+use MSBios\Guard\Resource\Doctrine\UserInterface;
 use MSBios\Hybridauth\HybridauthManagerInterface;
 use Zend\Authentication\AuthenticationServiceInterface;
 use Zend\Authentication\Result;
@@ -70,10 +71,17 @@ class HybridController extends DefaultHybridController
         if ($provider = $providerManager->find($userProfile, $identifier)) {
             /** @var IdentityInterface $identity */
             $identity = $provider->getUser();
-        } else if (!$identity = $this->getIdentityResolver()->find($userProfile)) {
+        } elseif (! $identity = $this->getIdentityResolver()->find($userProfile)) {
+
+            /** @var ObjectManager $dem */
+            $dem = $providerManager->getObjectManager();
+
             /** @var IdentityInterface $identity */
-            $identity = (new User)
-                ->setUsername($identifier . $userProfile->identifier)
+            $identity = $dem->getMetadataFactory()
+                ->getMetadataFor(ltrim(UserInterface::class, '\\'))
+                ->newInstance();
+
+            $identity->setUsername($identifier . $userProfile->identifier)
                 ->setFirstname($userProfile->firstName)
                 ->setLastname($userProfile->lastName)
                 ->setEmail($userProfile->emailVerified)
@@ -96,7 +104,6 @@ class HybridController extends DefaultHybridController
         }
 
         return $this->redirect()->toRoute('home');
-
     }
 
     /**
@@ -107,7 +114,7 @@ class HybridController extends DefaultHybridController
         /** @var AuthenticationServiceInterface $authenticationService */
         $authenticationService = $this->getAuthenticationService();
 
-        if (!$authenticationService->hasIdentity()) {
+        if (! $authenticationService->hasIdentity()) {
             return $this->redirect()->toRoute('home');
         }
 
@@ -120,7 +127,9 @@ class HybridController extends DefaultHybridController
             ->getUserProfile();
 
         $this->writeProvider(
-            $authenticationService->getIdentity(), $userProfile, $identifier
+            $authenticationService->getIdentity(),
+            $userProfile,
+            $identifier
         );
 
         return $this->redirect()->toRoute('home');
@@ -135,7 +144,9 @@ class HybridController extends DefaultHybridController
     protected function writeProvider(IdentityInterface $identity, \Hybrid_User_Profile $userProfile, $identifier)
     {
         return $this->getProviderManager()->write(
-            $identity, $userProfile, $identifier
+            $identity,
+            $userProfile,
+            $identifier
         );
     }
 }

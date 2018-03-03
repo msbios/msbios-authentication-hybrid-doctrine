@@ -5,7 +5,6 @@
  */
 namespace MSBios\Authentication\Hybrid\Doctrine\Resolver;
 
-
 use Doctrine\Common\Persistence\ObjectManager;
 use MSBios\Authentication\Hybrid\Resolver\EmailResolver as DefaultEmailResolver;
 use MSBios\Doctrine\ObjectManagerAwareTrait;
@@ -34,5 +33,4 @@ class PhoneResolver extends DefaultEmailResolver
     {
         exit('Find by phone');
     }
-
 }
