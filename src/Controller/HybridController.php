@@ -64,13 +64,13 @@ class HybridController extends DefaultHybridController
         /** @var \Hybrid_User_Profile $userProfile */
         $userProfile = $hybridauthResult->getUserProfile();
 
+        /** @var IdentityInterface $identity */
         $identity = null;
 
         if ($provider = $providerManager->find($userProfile, $identifier)) {
+            /** @var IdentityInterface $identity */
             $identity = $provider->getUser();
-        } else if ($identity = $this->getIdentityResolver()->find($userProfile)) {
-            // ... some
-        } else {
+        } else if (!$identity = $this->getIdentityResolver()->find($userProfile)) {
             /** @var IdentityInterface $identity */
             $identity = (new User)
                 ->setUsername($identifier . $userProfile->identifier)
@@ -78,11 +78,10 @@ class HybridController extends DefaultHybridController
                 ->setLastname($userProfile->lastName)
                 ->setEmail($userProfile->emailVerified)
                 ->setCreatedAt(new \DateTime('now'))
-                ->setModifiedAt(new \DateTime('now'))
-            ;
+                ->setModifiedAt(new \DateTime('now'));
 
             /** @var ObjectManager $dem */
-            $dem = $this->getProviderManager()->getObjectManager();
+            $dem = $providerManager->getObjectManager();
             $dem->persist($identity);
             $dem->flush();
         }
@@ -93,10 +92,10 @@ class HybridController extends DefaultHybridController
         );
 
         if ($authenticationResult->isValid()) {
-            return $this->redirect()->toRoute('home');
+            $this->writeProvider($identity, $userProfile, $identifier);
         }
 
-        exit('... need find user or registered empty user');
+        return $this->redirect()->toRoute('home');
 
     }
 
@@ -120,12 +119,23 @@ class HybridController extends DefaultHybridController
             ->authenticate($identifier)
             ->getUserProfile();
 
-        $this->getProviderManager()->write(
-            $authenticationService->getIdentity(),
-            $userProfile,
-            $identifier
+        $this->writeProvider(
+            $authenticationService->getIdentity(), $userProfile, $identifier
         );
 
         return $this->redirect()->toRoute('home');
+    }
+
+    /**
+     * @param IdentityInterface $identity
+     * @param \Hybrid_User_Profile $userProfile
+     * @param $identifier
+     * @return mixed
+     */
+    protected function writeProvider(IdentityInterface $identity, \Hybrid_User_Profile $userProfile, $identifier)
+    {
+        return $this->getProviderManager()->write(
+            $identity, $userProfile, $identifier
+        );
     }
 }

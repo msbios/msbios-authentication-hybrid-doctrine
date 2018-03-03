@@ -123,16 +123,16 @@
         },
         {
             "name": "msbios/authentication-hybrid",
-            "version": "v1.0.14",
+            "version": "v1.0.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/msbios/msbios-authentication-hybrid.git",
-                "reference": "8acae33329242bbe089606c566475ff59a1deccb"
+                "reference": "23e60c74eb38d3b699bf3a17eb8e154d9559a02a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/msbios/msbios-authentication-hybrid/zipball/8acae33329242bbe089606c566475ff59a1deccb",
-                "reference": "8acae33329242bbe089606c566475ff59a1deccb",
+                "url": "https://api.github.com/repos/msbios/msbios-authentication-hybrid/zipball/23e60c74eb38d3b699bf3a17eb8e154d9559a02a",
+                "reference": "23e60c74eb38d3b699bf3a17eb8e154d9559a02a",
                 "shasum": ""
             },
             "require": {
@@ -169,7 +169,7 @@
             "keywords": [
                 "php"
             ],
-            "time": "2018-03-03T08:49:49+00:00"
+            "time": "2018-03-03T13:40:12+00:00"
         },
         {
             "name": "msbios/authentication-hybrid-resource-doctrine",

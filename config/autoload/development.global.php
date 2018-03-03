@@ -117,4 +117,13 @@ return [
             ]
         ],
     ],
+
+    \MSBios\Authentication\Hybrid\Module::class => [
+        /**
+         *
+         */
+        'identity_resolvers' => [
+            \MSBios\Authentication\Hybrid\Resolver\EmailResolver::class => 100
+        ]
+    ]
 ];
