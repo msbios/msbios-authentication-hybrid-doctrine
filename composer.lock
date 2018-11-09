@@ -123,16 +123,16 @@
         },
         {
             "name": "msbios/authentication-hybrid",
-            "version": "v1.0.22",
+            "version": "v1.0.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/msbios/msbios-authentication-hybrid.git",
-                "reference": "48f7af633a5717a6ed5ab1986ba1a682294dc191"
+                "reference": "2dba57f7b269596f1c24cc7f8f15ead40cf82a67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/msbios/msbios-authentication-hybrid/zipball/48f7af633a5717a6ed5ab1986ba1a682294dc191",
-                "reference": "48f7af633a5717a6ed5ab1986ba1a682294dc191",
+                "url": "https://api.github.com/repos/msbios/msbios-authentication-hybrid/zipball/2dba57f7b269596f1c24cc7f8f15ead40cf82a67",
+                "reference": "2dba57f7b269596f1c24cc7f8f15ead40cf82a67",
                 "shasum": ""
             },
             "require": {
@@ -170,7 +170,7 @@
             "keywords": [
                 "php"
             ],
-            "time": "2018-11-09T12:40:00+00:00"
+            "time": "2018-11-09T18:36:30+00:00"
         },
         {
             "name": "msbios/authentication-hybrid-resource",

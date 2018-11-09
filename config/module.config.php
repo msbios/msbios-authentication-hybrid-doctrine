@@ -5,15 +5,11 @@
  */
 namespace MSBios\Authentication\Hybrid\Doctrine;
 
-use Zend\ServiceManager\Factory\InvokableFactory;
-
 return [
     'controllers' => [
         'factories' => [
             Controller\HybridController::class =>
                 Factory\HybridControllerFactory::class,
-            Controller\IndexController::class =>
-                InvokableFactory::class,
         ],
         'aliases' => [
             \MSBios\Authentication\Hybrid\Controller\HybridController::class =>

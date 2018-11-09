@@ -19,7 +19,7 @@ use Zend\Authentication\Adapter\AdapterInterface;
 class HybridController extends DefaultHybridController implements GuardInterface
 {
     /**
-     * @return \Zend\Http\Response
+     * @return mixed|\Zend\Http\Response
      */
     public function authenticateAction()
     {
