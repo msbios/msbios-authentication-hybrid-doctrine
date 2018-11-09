@@ -7,25 +7,12 @@
 namespace MSBios\Authentication\Hybrid\Doctrine\Controller;
 
 use MSBios\Authentication\Hybrid\Controller\IndexController as DefaultIndexController;
-use MSBios\Guard\GuardInterface;
-use Zend\Permissions\Acl\Resource\ResourceInterface;
 
 /**
  * Class IndexController
  * @package MSBios\Authentication\Hybrid\Doctrine\Controller
  */
-class IndexController extends DefaultIndexController implements
-    GuardInterface,
-    ResourceInterface
+class IndexController extends DefaultIndexController
 {
-
-    /**
-     * @inheritdoc
-     *
-     * @return string
-     */
-    public function getResourceId()
-    {
-        return self::class;
-    }
+    // ...
 }

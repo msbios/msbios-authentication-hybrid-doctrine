@@ -110,7 +110,7 @@ return [
     \MSBios\Guard\Module::class => [
         'resource_providers' => [
             \MSBios\Guard\Provider\ResourceProvider::class => [
-                Controller\IndexController::class => [
+                \MSBios\Application\Controller\IndexController::class => [
                     // ...
                 ],
             ],
@@ -119,7 +119,12 @@ return [
         'rule_providers' => [
             \MSBios\Guard\Provider\RuleProvider::class => [
                 'allow' => [
-                    [['USER'], Controller\IndexController::class],
+                    //[['USER'], Controller\IndexController::class],
+                    [['USER'], \MSBios\Application\Controller\IndexController::class],
+                    //[['USER'], \MSBios\Application\Controller\IndexController::class, ['index']],
+                    //[['GUEST'], \MSBios\Application\Controller\IndexController::class, [
+                    //    'login', 'join', 'reset'
+                    //]],
                 ],
                 'deny' => [
                     // ...

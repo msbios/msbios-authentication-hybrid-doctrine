@@ -9,6 +9,7 @@ $this->headLink()
 
 /** @var \Zend\Form\FormInterface $form */
 $form = $this->form;
+$form->setAttribute('action', $this->url('home/login'))
 ?>
 <h1><?= $this->translate('403 Forbidden'); ?></h1>
 
