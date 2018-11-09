@@ -7,7 +7,6 @@
 namespace MSBios\Authentication\Hybrid\Doctrine;
 
 use MSBios\Authentication\AuthenticationServiceInitializer;
-use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
 
@@ -33,8 +32,8 @@ return [
 
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class =>
-                \MSBios\Guard\Factory\IndexControllerFactory::class,
+            Controller\HybridController::class =>
+                Factory\HybridControllerFactory::class,
         ],
         'aliases' => [
             \MSBios\Application\Controller\IndexController::class =>
@@ -47,7 +46,10 @@ return [
 
     'view_manager' => [
         'template_map' => [
-            'error/403' => __DIR__ . '/../../view/error/403.phtml',
+            'error/403' =>
+                __DIR__ . '/../../view/error/403.phtml',
+            'ms-bios/guard/index/index' =>
+                __DIR__ . '/../../vendor/msbios/guard/view/ms-bios/guard/index/index.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../../view',
@@ -116,6 +118,7 @@ return [
         'rule_providers' => [
             \MSBios\Guard\Provider\RuleProvider::class => [
                 'allow' => [
+                    [['USER'], Controller\HybridController::class],
                     [['USER'], \MSBios\Application\Controller\IndexController::class],
                 ],
                 'deny' => [

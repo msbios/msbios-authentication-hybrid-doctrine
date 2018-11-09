@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "32cac6939c7eb10ed73d5677c2e3976e",
+    "content-hash": "3dea789e5e46f0faa9e21d9faa23c9e7",
     "packages": [
         {
             "name": "facebook/graph-sdk",
@@ -2753,16 +2753,16 @@
         },
         {
             "name": "msbios/guard",
-            "version": "v1.0.24",
+            "version": "v1.0.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/msbios/msbios-guard.git",
-                "reference": "047000a44ed5382a2be3885b9dcf075093302146"
+                "reference": "f2498073995f719f1cdeb4ec7839bc5f6831803d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/msbios/msbios-guard/zipball/047000a44ed5382a2be3885b9dcf075093302146",
-                "reference": "047000a44ed5382a2be3885b9dcf075093302146",
+                "url": "https://api.github.com/repos/msbios/msbios-guard/zipball/f2498073995f719f1cdeb4ec7839bc5f6831803d",
+                "reference": "f2498073995f719f1cdeb4ec7839bc5f6831803d",
                 "shasum": ""
             },
             "require": {
@@ -2804,7 +2804,7 @@
             "keywords": [
                 "php"
             ],
-            "time": "2018-11-08T21:59:59+00:00"
+            "time": "2018-11-09T17:22:43+00:00"
         },
         {
             "name": "msbios/guard-cpanel",
@@ -2917,6 +2917,56 @@
                 "php"
             ],
             "time": "2018-03-21T14:14:54+00:00"
+        },
+        {
+            "name": "msbios/guard-developer-tools",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/msbios/msbios-guard-developer-tools.git",
+                "reference": "59cdd48eaf4f5ae343226dbb2bcbc871c8068688"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/msbios/msbios-guard-developer-tools/zipball/59cdd48eaf4f5ae343226dbb2bcbc871c8068688",
+                "reference": "59cdd48eaf4f5ae343226dbb2bcbc871c8068688",
+                "shasum": ""
+            },
+            "require-dev": {
+                "msbios/application": "^1.0",
+                "msbios/authentication": "^1.0",
+                "msbios/debug": "^1.0",
+                "msbios/guard": "^1.0",
+                "msbios/resource": "^1.0",
+                "msbios/test": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "zf": {
+                    "component": "MSBios\\Guard\\DeveloperTools"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MSBios\\Guard\\DeveloperTools\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Judzhin Miles",
+                    "email": "info@msbios.com"
+                }
+            ],
+            "description": "MSBios Guard",
+            "homepage": "https://github.com/msbios/msbios-guard-developer-tools",
+            "keywords": [
+                "php"
+            ],
+            "time": "2018-08-01T12:52:52+00:00"
         },
         {
             "name": "msbios/guard-doctrine",

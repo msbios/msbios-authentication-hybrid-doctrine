@@ -21,7 +21,7 @@ class HybridControllerFactory extends DefaultHybridControllerFactory
      * @param ContainerInterface $container
      * @param string $requestedName
      * @param array|null $options
-     * @return HybridController
+     * @return DefaultHybridController|HybridController
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {

@@ -10,8 +10,11 @@ use MSBios\AutoloaderAwareTrait;
 use MSBios\ModuleAwareInterface;
 use MSBios\ModuleAwareTrait;
 use MSBios\ModuleInterface;
+use Zend\Authentication\AuthenticationService;
+use Zend\EventManager\EventInterface;
 use Zend\Loader\AutoloaderFactory;
 use Zend\Loader\StandardAutoloader;
+use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 
 /**
  * Class Module
@@ -20,7 +23,8 @@ use Zend\Loader\StandardAutoloader;
 class Module implements
     ModuleInterface,
     ModuleAwareInterface,
-    AutoloaderAwareInterface
+    AutoloaderAwareInterface,
+    BootstrapListenerInterface
 {
     /** @const VERSION */
     const VERSION = '1.0.2';
@@ -49,5 +53,16 @@ class Module implements
                 ],
             ],
         ];
+    }
+
+    /**
+     * Listen to the bootstrap event
+     *
+     * @param EventInterface $e
+     * @return array
+     */
+    public function onBootstrap(EventInterface $e)
+    {
+        // var_dump($e->getTarget()->getServiceManager()->get(AuthenticationService::class)->hasIdentity()); die();
     }
 }

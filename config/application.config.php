@@ -6,7 +6,6 @@
 return [
     // Retrieve list of modules used in this application.
     'modules' => [
-
         'Zend\Serializer',
         'Zend\I18n',
         'Zend\Navigation',
@@ -73,6 +72,7 @@ return [
         'MSBios\Authentication\Hybrid\Resource\Doctrine',
 
         'MSBios\Test',
+        'MSBios\Guard\DeveloperTools',
         'ZendDeveloperTools',
     ],
     // These are various options for the listeners attached to the ModuleManager

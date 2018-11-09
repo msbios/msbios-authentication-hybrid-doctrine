@@ -3,16 +3,16 @@
  * @access protected
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
+
 namespace MSBios\Authentication\Hybrid\Doctrine\Controller;
 
-use MSBios\Guard\Doctrine\Controller\IndexController as DefaultIndexController;
-use MSBios\Guard\GuardInterface;
+use MSBios\Hybridauth\Controller\IndexController as DefaultIndexController;
 
 /**
  * Class IndexController
  * @package MSBios\Authentication\Hybrid\Doctrine\Controller
  */
-class IndexController extends DefaultIndexController implements GuardInterface
+class IndexController extends DefaultIndexController
 {
     // ...
 }
