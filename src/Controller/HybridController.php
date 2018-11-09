@@ -47,48 +47,4 @@ class HybridController extends DefaultHybridController
 
         return $this->redirect()->toRoute('home');
     }
-
-    ///**
-    // * @return \Zend\Http\Response
-    // */
-    //public function addAction()
-    //{
-    //    /** @var AuthenticationServiceInterface $authenticationService */
-    //    $authenticationService = $this->getAuthenticationService();
-    //
-    //    if (! $authenticationService->hasIdentity()) {
-    //        return $this->redirect()->toRoute('home');
-    //    }
-    //
-    //    /** @var string $identifier */
-    //    $identifier = $this->params()->fromRoute('identifier');
-    //
-    //    /** @var \Hybrid_User_Profile $userProfile */
-    //    $userProfile = $this->getHybridauthManager()
-    //        ->authenticate($identifier)
-    //        ->getUserProfile();
-    //
-    //    $this->writeProvider(
-    //        $authenticationService->getIdentity(),
-    //        $userProfile,
-    //        $identifier
-    //    );
-    //
-    //    return $this->redirect()->toRoute('home');
-    //}
-
-    ///**
-    // * @param IdentityInterface $identity
-    // * @param \Hybrid_User_Profile $userProfile
-    // * @param $identifier
-    // * @return mixed
-    // */
-    //protected function writeProvider(IdentityInterface $identity, \Hybrid_User_Profile $userProfile, $identifier)
-    //{
-    //    return $this->getProviderManager()->write(
-    //        $identity,
-    //        $userProfile,
-    //        $identifier
-    //    );
-    //}
 }

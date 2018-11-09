@@ -12,6 +12,13 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 return [
 
     'doctrine' => [
+        'authentication' => [
+            'orm_default' => [
+                'identity_class' => \MSBios\Guard\Resource\Doctrine\UserInterface::class,
+                'identity_property' => 'username',
+                'credential_property' => 'password',
+            ],
+        ],
         'connection' => [
             'orm_default' => [
                 'params' => [
@@ -38,6 +45,15 @@ return [
         ]
     ],
 
+    'view_manager' => [
+        'template_map' => [
+            'error/403' => __DIR__ . '/../../view/error/403.phtml',
+        ],
+        'template_path_stack' => [
+            __DIR__ . '/../../view',
+        ],
+    ],
+
     \MSBios\Theme\Module::class => [
         'default_global_paths' => [
             'default_global_paths' => __DIR__ . '/../../themes/'
@@ -47,15 +63,6 @@ return [
     \MSBios\Assetic\Module::class => [
         'paths' => [
             __DIR__ . '/../../vendor/msbios/application/themes/default/public/',
-        ],
-    ],
-
-    'view_manager' => [
-        'template_map' => [
-            'error/403' => __DIR__ . '/../../view/error/403.phtml',
-        ],
-        'template_path_stack' => [
-            __DIR__ . '/../../view',
         ],
     ],
 
@@ -100,11 +107,9 @@ return [
     \MSBios\Guard\Module::class => [
         'resource_providers' => [
             \MSBios\Guard\Provider\ResourceProvider::class => [
-
-                \MSBios\Application\Controller\IndexController::class => [],
-                // 'DASHBOARD' => [
-                //     'SIDEBAR' => [],
-                // ],
+                \MSBios\Application\Controller\IndexController::class => [
+                    // ...
+                ],
             ],
         ],
 
@@ -113,15 +118,14 @@ return [
                 'allow' => [
                     [['USER'], \MSBios\Application\Controller\IndexController::class],
                 ],
-                'deny' => []
+                'deny' => [
+                    // ...
+                ]
             ]
         ],
     ],
 
     \MSBios\Authentication\Hybrid\Module::class => [
-        /**
-         *
-         */
         'identity_resolvers' => [
             \MSBios\Authentication\Hybrid\Resolver\EmailResolver::class => 100
         ]

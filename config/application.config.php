@@ -25,17 +25,13 @@ return [
         'Zend\Session',
         'Zend\Router',
         'Zend\Validator',
-        'ZendDeveloperTools',
 
         'DoctrineModule',
         'DoctrineORMModule',
 
         'MSBios\Cache',
         'MSBios\Hydrator',
-        'MSBios\Paginator\Doctrine',
         'MSBios\Validator',
-        'MSBios\Authentication\Hybrid\Resource',
-        'MSBios\Guard\Doctrine',
         'MSBios\Application',
         'MSBios\Theme',
         'MSBios\Widget',
@@ -43,30 +39,41 @@ return [
         'MSBios\I18n',
         'MSBios\Navigation',
         'MSBios\View',
+        'MSBios\Db',
+        'MSBios\Hybridauth',
+
+        'MSBios\Form',
+        'MSBios\Form\Doctrine',
+
         'MSBios\Portal',
         'MSBios\Portal\Doctrine',
+
         'MSBios\CPanel',
         'MSBios\CPanel\Doctrine',
 
+        'MSBios\Paginator\Doctrine',
+
         'MSBios\Guard',
+        'MSBios\Guard\Doctrine',
         'MSBios\Guard\CPanel',
         'MSBios\Guard\CPanel\Doctrine',
+        'MSBios\Guard\Resource',
+        'MSBios\Guard\Resource\Doctrine',
+
+        'MSBios\Resource',
+        'MSBios\Resource\Doctrine',
+
+        'MSBios\Doctrine',
+
         'MSBios\Authentication',
         'MSBios\Authentication\Doctrine',
-        'MSBios\Guard\Resource\Doctrine',
-        'MSBios\Resource\Doctrine',
-        'MSBios\Form\Doctrine',
-        'MSBios\Doctrine',
-        'MSBios\Guard\Resource',
-
-        'MSBios\Db',
-        'MSBios\Form',
-        'MSBios\Test',
-
-        'MSBios\Hybridauth',
         'MSBios\Authentication\Hybrid',
         'MSBios\Authentication\Hybrid\Doctrine',
+        'MSBios\Authentication\Hybrid\Resource',
         'MSBios\Authentication\Hybrid\Resource\Doctrine',
+
+        'MSBios\Test',
+        'ZendDeveloperTools',
     ],
     // These are various options for the listeners attached to the ModuleManager
     'module_listener_options' => [

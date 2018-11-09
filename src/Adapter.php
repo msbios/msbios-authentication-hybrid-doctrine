@@ -18,13 +18,14 @@ use MSBios\Guard\Resource\Doctrine\UserInterface;
 use MSBios\Hybridauth\HybridauthManagerAwareInterface;
 use MSBios\Hybridauth\HybridauthManagerAwareTrait;
 use MSBios\Hybridauth\HybridauthManagerInterface;
+use Zend\Authentication\Adapter\AbstractAdapter;
 use Zend\Authentication\Adapter\AdapterInterface;
 
 /**
  * Class Adapter
  * @package MSBios\Authentication\Hybrid\Doctrine
  */
-class Adapter implements
+class Adapter extends AbstractAdapter implements
     AdapterInterface,
     HybridauthManagerAwareInterface,
     ProviderManagerAwareInterface,
@@ -35,6 +36,9 @@ class Adapter implements
     use IdentityResolverAwareTrait;
 
     protected $identifier = null;
+
+    /** @var \Hybrid_User_Profile */
+    protected $userProfile = null;
 
     /**
      * Adapter constructor.
@@ -48,12 +52,20 @@ class Adapter implements
         ProviderManagerInterface $providerManager,
         IdentityResolver $identityResolver,
         $identifier = null
-    ) {
+    )
+    {
         $this->setHybridauthManager($hybridauthManager);
         $this->setProviderManager($providerManager);
         $this->setIdentityResolver($identityResolver);
         $this->identifier = $identifier;
     }
+
+    /**
+     * Contains the authentication results.
+     *
+     * @var array
+     */
+    protected $resultInfo = null;
 
     /**
      * @param $identifier
@@ -66,11 +78,37 @@ class Adapter implements
     }
 
     /**
+     * @param \Hybrid_User_Profile $userProfile
+     * @return $this
+     */
+    public function setUserProfile(\Hybrid_User_Profile $userProfile)
+    {
+        $this->userProfile = $userProfile;
+        return $this;
+    }
+
+    /**
+     * @return \Hybrid_User_Profile
+     */
+    public function getUserProfile()
+    {
+        return $this->userProfile;
+    }
+
+    /**
      * @param null $identifier
      * @return void|\Zend\Authentication\Result
      */
     public function authenticate($identifier = null)
     {
+        // Default Value
+        $this->resultInfo = [
+            'code' => Result::FAILURE,
+            'identity' => $this->getIdentity(),
+            'messages' => [],
+            'userProfile' => $this->getUserProfile()
+        ];
+
         /** @var string $identifier */
         $identifier = $identifier
             ?: $this->identifier;
@@ -79,13 +117,15 @@ class Adapter implements
         $hybridauthResult = $this->hybridauthManager
             ->authenticate($identifier);
 
-        /** @var \Hybrid_User_Profile $userProfile */
-        $userProfile = $hybridauthResult->getUserProfile();
+        $this->setUserProfile($hybridauthResult->getUserProfile())
+            ->setIdentity($this->find($this->getUserProfile(), $identifier));
 
-        /** @var IdentityInterface $identity */
-        $identity = $this->find($userProfile, $identifier);
+        $this->resultInfo['code'] = Result::SUCCESS;
+        $this->resultInfo['identity'] = $this->getIdentity();
+        $this->resultInfo['messages'][] = _('Authentication successful.');
+        $this->resultInfo['userProfile'] = $this->getUserProfile();
 
-        return new Result(Result::SUCCESS, $identity, ['Authentication successful.'], $userProfile);
+        return $this->createAuthenticationResult();
     }
 
     /**
@@ -129,5 +169,18 @@ class Adapter implements
         $dem->flush();
 
         return $identity;
+    }
+
+    /**
+     * @return Result
+     */
+    protected function createAuthenticationResult()
+    {
+        return new Result(
+            $this->resultInfo['code'],
+            $this->resultInfo['identity'],
+            $this->resultInfo['messages'],
+            $this->resultInfo['userProfile']
+        );
     }
 }

@@ -14,7 +14,6 @@ use Zend\Authentication\Result as DefaultResult;
  */
 class Result extends DefaultResult
 {
-
     /** @var \Hybrid_User_Profile */
     protected $userProfile;
 
