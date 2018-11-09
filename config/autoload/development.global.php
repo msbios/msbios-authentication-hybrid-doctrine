@@ -6,7 +6,6 @@
 
 namespace MSBios\Authentication\Hybrid\Doctrine;
 
-use MSBios\Authentication\AuthenticationServiceInitializer;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
@@ -37,11 +36,8 @@ return [
                 InvokableFactory::class,
         ],
         'aliases' => [
-            \MSBios\Application\Controller\IndexController::class =>
+            \MSBios\Portal\Doctrine\Controller\IndexController::class =>
                 Controller\IndexController::class
-        ],
-        'initializers' => [
-            new AuthenticationServiceInitializer
         ]
     ],
 
@@ -113,14 +109,21 @@ return [
                 \MSBios\Application\Controller\IndexController::class => [
                     // ...
                 ],
+                \MSBios\Portal\Doctrine\Controller\IndexController::class => [
+                    // ...
+                ],
+                Controller\IndexController::class => [
+                    // ...
+                ],
             ],
         ],
 
         'rule_providers' => [
             \MSBios\Guard\Provider\RuleProvider::class => [
                 'allow' => [
-                    //[['USER'], Controller\IndexController::class],
+                    [['USER'], Controller\IndexController::class],
                     [['USER'], \MSBios\Application\Controller\IndexController::class],
+                    [['USER'], \MSBios\Portal\Doctrine\Controller\IndexController::class],
                     //[['USER'], \MSBios\Application\Controller\IndexController::class, ['index']],
                     //[['GUEST'], \MSBios\Application\Controller\IndexController::class, [
                     //    'login', 'join', 'reset'

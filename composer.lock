@@ -3545,16 +3545,16 @@
         },
         {
             "name": "msbios/portal-doctrine",
-            "version": "v1.0.6",
+            "version": "v1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/msbios/msbios-portal-doctrine.git",
-                "reference": "aadc3db1f7658e1e015a138d1c167b251461a049"
+                "reference": "6b543b0d1fb17dbfdbe0657a34b8867c859cabb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/msbios/msbios-portal-doctrine/zipball/aadc3db1f7658e1e015a138d1c167b251461a049",
-                "reference": "aadc3db1f7658e1e015a138d1c167b251461a049",
+                "url": "https://api.github.com/repos/msbios/msbios-portal-doctrine/zipball/6b543b0d1fb17dbfdbe0657a34b8867c859cabb0",
+                "reference": "6b543b0d1fb17dbfdbe0657a34b8867c859cabb0",
                 "shasum": ""
             },
             "require": {
@@ -3597,7 +3597,7 @@
             "keywords": [
                 "php"
             ],
-            "time": "2018-11-08T15:57:37+00:00"
+            "time": "2018-11-09T19:37:35+00:00"
         },
         {
             "name": "msbios/resource",
