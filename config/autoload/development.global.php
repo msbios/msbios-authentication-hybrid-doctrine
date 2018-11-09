@@ -6,7 +6,7 @@
 
 namespace MSBios\Authentication\Hybrid\Doctrine;
 
-use MSBios\Authentication\Initializer\AuthenticationServiceInitializer;
+use MSBios\Authentication\AuthenticationServiceInitializer;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
@@ -27,7 +27,7 @@ return [
     'controllers' => [
         'factories' => [
             Controller\IndexController::class =>
-                InvokableFactory::class,
+                \MSBios\Guard\Factory\IndexControllerFactory::class,
         ],
         'aliases' => [
             \MSBios\Application\Controller\IndexController::class =>
@@ -67,7 +67,7 @@ return [
             "Facebook" => [
                 "enabled" => true,
                 "keys" => ["id" => "", "secret" => ""], // in development.local.php
-                "scope" => ['email', 'user_about_me', 'user_birthday', 'user_hometown'], // optional
+                "scope" => ['email', 'user_birthday', 'user_hometown'], // optional
                 "photo_size" => 200, // optional
             ],
             "Google" => [

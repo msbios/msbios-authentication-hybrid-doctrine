@@ -6,8 +6,8 @@
 return [
     // Retrieve list of modules used in this application.
     'modules' => [
-        'MSBios\Authentication\Hybrid\Resource',
-        'MSBios\Guard\Doctrine',
+
+        'Zend\Serializer',
         'Zend\I18n',
         'Zend\Navigation',
         'Zend\Mvc\Plugin\FilePrg',
@@ -30,6 +30,12 @@ return [
         'DoctrineModule',
         'DoctrineORMModule',
 
+        'MSBios\Cache',
+        'MSBios\Hydrator',
+        'MSBios\Paginator\Doctrine',
+        'MSBios\Validator',
+        'MSBios\Authentication\Hybrid\Resource',
+        'MSBios\Guard\Doctrine',
         'MSBios\Application',
         'MSBios\Theme',
         'MSBios\Widget',
@@ -52,7 +58,6 @@ return [
         'MSBios\Form\Doctrine',
         'MSBios\Doctrine',
         'MSBios\Guard\Resource',
-
 
         'MSBios\Db',
         'MSBios\Form',
