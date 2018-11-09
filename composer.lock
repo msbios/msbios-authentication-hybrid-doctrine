@@ -123,16 +123,16 @@
         },
         {
             "name": "msbios/authentication-hybrid",
-            "version": "v1.0.23",
+            "version": "v1.0.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/msbios/msbios-authentication-hybrid.git",
-                "reference": "2dba57f7b269596f1c24cc7f8f15ead40cf82a67"
+                "reference": "ac4f5b330c0fec55b2fd75df8b7122a8a4285c59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/msbios/msbios-authentication-hybrid/zipball/2dba57f7b269596f1c24cc7f8f15ead40cf82a67",
-                "reference": "2dba57f7b269596f1c24cc7f8f15ead40cf82a67",
+                "url": "https://api.github.com/repos/msbios/msbios-authentication-hybrid/zipball/ac4f5b330c0fec55b2fd75df8b7122a8a4285c59",
+                "reference": "ac4f5b330c0fec55b2fd75df8b7122a8a4285c59",
                 "shasum": ""
             },
             "require": {
@@ -170,7 +170,7 @@
             "keywords": [
                 "php"
             ],
-            "time": "2018-11-09T18:36:30+00:00"
+            "time": "2018-11-09T22:02:05+00:00"
         },
         {
             "name": "msbios/authentication-hybrid-resource",
@@ -2753,16 +2753,16 @@
         },
         {
             "name": "msbios/guard",
-            "version": "v1.0.25",
+            "version": "v1.0.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/msbios/msbios-guard.git",
-                "reference": "f2498073995f719f1cdeb4ec7839bc5f6831803d"
+                "reference": "214c8f6fe68e425b9e88261c90274ef35ba7183c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/msbios/msbios-guard/zipball/f2498073995f719f1cdeb4ec7839bc5f6831803d",
-                "reference": "f2498073995f719f1cdeb4ec7839bc5f6831803d",
+                "url": "https://api.github.com/repos/msbios/msbios-guard/zipball/214c8f6fe68e425b9e88261c90274ef35ba7183c",
+                "reference": "214c8f6fe68e425b9e88261c90274ef35ba7183c",
                 "shasum": ""
             },
             "require": {
@@ -2804,7 +2804,7 @@
             "keywords": [
                 "php"
             ],
-            "time": "2018-11-09T17:22:43+00:00"
+            "time": "2018-11-09T21:36:56+00:00"
         },
         {
             "name": "msbios/guard-cpanel",
@@ -2970,16 +2970,16 @@
         },
         {
             "name": "msbios/guard-doctrine",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/msbios/msbios-guard-doctrine.git",
-                "reference": "9610c7c9b48da7f06c4b793d538374368618bf9f"
+                "reference": "90c3a65b1386057e3f53aa115dd10089121077d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/msbios/msbios-guard-doctrine/zipball/9610c7c9b48da7f06c4b793d538374368618bf9f",
-                "reference": "9610c7c9b48da7f06c4b793d538374368618bf9f",
+                "url": "https://api.github.com/repos/msbios/msbios-guard-doctrine/zipball/90c3a65b1386057e3f53aa115dd10089121077d5",
+                "reference": "90c3a65b1386057e3f53aa115dd10089121077d5",
                 "shasum": ""
             },
             "require": {
@@ -3022,7 +3022,7 @@
             "keywords": [
                 "php"
             ],
-            "time": "2018-02-28T14:17:43+00:00"
+            "time": "2018-11-09T21:46:17+00:00"
         },
         {
             "name": "msbios/guard-resource",
