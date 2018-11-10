@@ -6,6 +6,7 @@
 
 namespace MSBios\Authentication\Hybrid\Doctrine;
 
+use MSBios\Authentication\AuthenticationServiceInitializer;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
@@ -38,6 +39,9 @@ return [
         'aliases' => [
             \MSBios\Portal\Doctrine\Controller\IndexController::class =>
                 Controller\IndexController::class
+        ],
+        'initializers' => [
+            new AuthenticationServiceInitializer
         ]
     ],
 

@@ -26,6 +26,8 @@ $identity = $this->identity();
     <li><b>Lastname:</b> <?= $identity->getLastname(); ?></li>
 </ul>
 
+<?= r($identity); ?>
+
 <h2>Bind networks</h2>
 
 <a href="<?= $this->url('hybridauth/provider/add', ['identifier' => 'facebook']); ?>" class="btn btn-primary btn-sm">
