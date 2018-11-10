@@ -52,8 +52,7 @@ class Adapter extends AbstractAdapter implements
         ProviderManagerInterface $providerManager,
         IdentityResolver $identityResolver,
         $identifier = null
-    )
-    {
+    ) {
         $this->setHybridauthManager($hybridauthManager);
         $this->setProviderManager($providerManager);
         $this->setIdentityResolver($identityResolver);
